@@ -3,36 +3,40 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Malmö FF - Officiell Supportersida</title>
-    <link rel="stylesheet" href="Huvudsida.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malmö FF - Historia & Quiz</title>
     <link rel="stylesheet" href="historia.css">
 </head>
 
 <body class="Huvudsida">
     <header>
-        <nav class="navbar"> <div class="loga">
-            <img src="Bilder/Malmo_FF_logo.svg" alt="MFF Logga" class="loga-bild">
-            MFF</div>
+        <nav class="navigering"> 
+            <div class="logotyp">
+                <img src="Bilder/Malmo_FF_logo.svg" alt="MFF Logga" class="logotyp-bild">
+                MFF
+            </div>
             <ul>
-                <li><a href="Huvudsida.html" class="knappar">Hem</a></li>
-                <li><a href="herrlag.html" class="knappar">Herrlaget</a></li>
-                <li><a href="damlaget.html" class="knappar">Damlaget</a></li>
-                <li><a href="resultat.html" class="knappar">Tabell</a></li>
-                <li><a href="historia.html" class="knappar">Historia</a></li>
+                <li><a href="index.html" class="menyknappar">Hem</a></li>
+                <li><a href="herrlag.html" class="menyknappar">Herrlaget</a></li>
+                <li><a href="damlaget.html" class="menyknappar">Damlaget</a></li>
+                <li><a href="resultat.html" class="menyknappar">Tabell</a></li>
+                <li><a href="historia.html" class="menyknappar">Historia</a></li>
             </ul>
         </nav>
     </header>
     <hr>
 
-    <main class="text-center">
+    <main class="text-centrerad">
         <h1>Malmö FF - Enkelfakta</h1>
         
-        <p>Malmö Fotbollförening grundades den 24 februari 1910 på Malmö Idrottsplats.</p>
-        <p>Klubben spelar sina hemmamatcher i helblåa tröjor och vita shorts på Eleda Stadion i Malmö.</p>
-        <p>MFF är Sveriges mest framgångsrika klubb med flest SM-guld och allsvenska seriesegrar genom tiderna.</p>
-        <p>År 1979 nådde klubben som enda svenska lag någonsin finalen i Europacupen (Champions League).</p>
-        <p>Mellan åren 1949 och 1951 satte MFF ett legendariskt svenskt rekord genom att spela 49 allsvenska matcher i rad utan en enda förlust.</p>
-        <p>Klubbens officiella supporterförening heter MFF Support och tröjnummer 12 är pensionerat för att ära fansen.</p>
+        <div class="fakta-text">
+            <p>Malmö Fotbollförening grundades den 24 februari 1910 på Malmö Idrottsplats.</p>
+            <p>Klubben spelar sina hemmamatcher i helblåa tröjor och vita shorts på Eleda Stadion i Malmö.</p>
+            <p>MFF är Sveriges mest framgångsrika klubb med flest SM-guld och allsvenska seriesegrar genom tiderna.</p>
+            <p>År 1979 nådde klubben som enda svenska lag någonsin finalen i Europacupen (Champions League).</p>
+            <p>Mellan åren 1949 och 1951 satte MFF ett legendariskt svenskt rekord genom att spela 49 allsvenska matcher i rad utan en enda förlust.</p>
+            <p>Klubbens officiella supporterförening heter MFF Support och tröjnummer 12 är pensionerat för att ära fansen.</p>
+        </div>
 
         <div class="quiz-sektion">
             <div id="quiz-container">
@@ -40,14 +44,14 @@
                 <div id="alternativ-box" class="knapp-grupp"></div>
             </div>
 
-            <button id="nasta-knapp" class="knappar" onclick="nastaFraga()" style="margin-top: 20px; display: none;">Nästa fråga</button>
+            <button id="nasta-knapp" class="menyknappar" onclick="nastaFraga()" style="margin-top: 20px; display: none;">Nästa fråga</button>
 
             <div id="resultat-box" style="display: none; margin-top: 20px;">
                 <h2>Quizet är klart!</h2>
                 <p>Antal rätt: <strong id="text-ratt" style="color: green;">0</strong></p>
                 <p>Antal fel: <strong id="text-fel" style="color: red;">0</strong></p>
                 
-                <button class="knappar" onclick="nollstallQuiz()" style="margin-top: 15px; cursor: pointer;">Gör om testet</button>
+                <button class="menyknappar" onclick="nollstallQuiz()" style="margin-top: 15px; cursor: pointer;">Gör om testet</button>
             </div>
         </div>
     </main>
@@ -55,4 +59,3 @@
     <script src="quiz.js"></script>
 </body>
 </html>
-

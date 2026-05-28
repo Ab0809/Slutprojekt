@@ -1,41 +1,81 @@
-/* --- GRUNDSTILAR (DATOR OCH ALLMÄNT - HELT ORÖRT) --- */
+* {
+    box-sizing: border-box;
+}
+
 body {
     background: linear-gradient(white, rgba(167, 215, 255, 1.0));
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    background-attachment: fixed;
+    min-height: 100vh;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #005293;
-    min-height: 900px;
+    overflow-x: hidden;
 }
 
-/* Navigationsmeny längst upp */
+hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #005293;
+    margin: 0;
+}
+
+/* Menyknappar (Exakt samma 3D-effekt och färger som startsidan) */
+.menyknappar {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #005293;
+    border-radius: 1px;
+    padding: 4px 8px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color: #005293;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: white;
+}
+
+.menyknappar:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+/* Navigeringsmeny längst upp */
 .navigering {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
     padding: 20px 50px;
     background-color: #ffffff;
-    width: calc(100% - 60px);
-    max-width: 1200px;
-    margin: 20px auto 0;
-    box-sizing: border-box;
-    border: 1px solid rgba(0, 82, 147, 0.12);
+    margin: 20px 40px 0;
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 82, 147, 0.12);
 }
 
 .navigering .logotyp {
     font-size: 24px;
     font-weight: 900;
     letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.loga-bild {
+    height: 1em;
+    width: auto;
 }
 
 .navigering ul {
     list-style: none;
     display: flex;
-    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 30px;
     margin: 0;
     padding: 0;
 }
@@ -47,76 +87,68 @@ body {
     text-transform: uppercase;
 }
 
-/* Menyknappar */
-.menyknappar {
-    border-style: solid;
-    border-radius: 1px;
-    padding: 4px;
-    box-shadow: 5px 5px 5px;
-}
-
-.menyknappar:hover {
-    background-color: darkblue;
-    color: white;
-}
-
 /* Centrerar tabellboxen perfekt på skärmen */
 .huvudinnehall {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 80px);
-    padding: 20px;
-    box-sizing: border-box;
+    padding: 40px 20px;
 }
 
 /* Vit container runt tabellen */
 .tabell-omslag {
     background-color: #ffffff;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    padding: 15px 0;
-    width: fit-content;
-    min-width: 500px;
-    border: solid rgb(0, 0, 0);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 20px 0;
+    width: 100%;
+    max-width: 800px; /* Sätter en bra maxbredd på datorn */
+    border: 1px solid rgba(0, 82, 147, 0.12);
 }
 
 /* Rubrikfältet i tabellens topp */
 .tabell-rubrik-rad {
-    padding: 0 20px 15px 20px;
+    padding: 0 24px 15px 24px;
     border-bottom: 1px solid #eaeaea;
 }
 
 .liga-titel {
-    font-weight: 700;
-    font-size: 16px;
+    font-weight: 900;
+    font-size: 20px;
+    color: #005293;
 }
 
 /* Själva tabellen */
 .statistik-tabell {
     width: 100%;
     border-collapse: collapse;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 /* Kolumnrubriker */
 .statistik-tabell th {
-    padding: 12px 16px;
-    font-weight: 500;
-    color: #666;
-    border-bottom: 1px solid #eaeaea;
+    padding: 14px 20px;
+    font-weight: 700;
+    color: #005293;
+    border-bottom: 2px solid #eaeaea;
 }
 
 /* Tabellrader */
 .statistik-tabell td {
-    padding: 10px 16px;
+    padding: 12px 20px;
     vertical-align: middle;
     border-bottom: 1px solid #f1f1f1;
+    color: #333;
 }
 
 /* Varannan rad får ljusgrå bakgrund */
 .statistik-tabell tbody tr:nth-child(even) {
     background-color: #f8f9fa;
+}
+
+/* Framhäver Malmö FF i listan */
+.statistik-tabell tbody tr:hover {
+    background-color: rgba(167, 215, 255, 0.15);
 }
 
 /* Textjustering och format */
@@ -126,83 +158,81 @@ body {
 .text-fet { font-weight: bold; }
 
 .lag-namn {
-    font-weight: 400;
-    width: 150px;
+    font-weight: 600;
 }
 
-
-/* --- MOBILANPASSNING (Skärmar under 640px bredd - ENDAST HÄR ÄR DET ÄNDRAT) --- */
-@media (max-width: 640px) {
-    body {
-        height: auto;
-        min-height: 100vh;
-    }
-
-    /* Menyn */
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIV DESIGN FÖR MOBIL / MINDRE SKÄRMAR)
+   ========================================================================== */
+@media (max-width: 900px) {
     .navigering {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-        width: calc(100% - 20px);
-        margin: 10px auto;
+        margin: 16px 16px 0;
+        padding: 18px 20px;
     }
+}
 
-    .navigering ul {
+@media (max-width: 640px) {
+    .navigering {
+        justify-content: center;
+        text-align: center;
         flex-direction: column;
         gap: 12px;
+    }
+
+    .navigering .logotyp {
+        justify-content: center;
+    }
+
+    /* KNAPPAR UNDER VARANDRA PÅ MOBIL */
+    .navigering ul {
         width: 100%;
-        text-align: center;
+        flex-direction: column;
+        gap: 12px;
     }
 
-    .navigering a {
+    .menyknappar {
         display: block;
+        padding: 10px;
+        box-shadow: none; /* Tar bort 3D-skuggan på mobilen */
+        border-radius: 5px;
     }
 
-    /* Tabellens container på mobilen */
+    /* Tabellens mobilanpassning */
     .huvudinnehall {
-        padding: 5px; /* Minimal padding runt om så tabellen får mer plats */
+        padding: 10px 5px;
     }
 
     .tabell-omslag {
-        min-width: 100%;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 10px 0;
+        border-radius: 10px;
+        padding: 15px 0;
     }
 
     .tabell-rubrik-rad {
-        padding: 0 10px 10px 10px;
+        padding: 0 12px 10px 12px;
     }
 
-    /* Tvingar tabellen att hålla sig inom skärmens bredd */
     .statistik-tabell {
-        table-layout: fixed; /* Tvingar kolumnerna att krympa istället för att trycka ut tabellen */
-        width: 100%;
+        table-layout: fixed;
     }
 
-    /* Krymper text och mellanrum till ett minimum så att ALLA 9 kolumner syns samtidigt */
     .statistik-tabell th,
     .statistik-tabell td {
-        padding: 6px 3px; /* Mycket mindre mellanrum i sidled */
-        font-size: 11px;   /* Mindre textstorlek så siffrorna får plats */
-        word-break: break-all; /* Hindrar text från att trycka ut kolumnerna */
+        padding: 8px 3px;
+        font-size: 11px;
+        word-break: break-all;
     }
 
-    /* Specialbredd för lag-kolumnen så lagnamnen får mest plats */
     .lag-namn {
-        width: 28%; 
-        font-size: 11px;
+        width: 28%;
         white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis; /* Om ett lagnamn är jättelångt (t.ex. Brommapojkarna) läggs "..." till istället för att förstöra tabellen */
+        text-overflow: ellipsis;
     }
 
-    /* Sätter fasta procent på de små sifferkolumnerna så de inte tar onödig plats */
     .text-centrerad {
         width: 8%;
     }
     
-    /* Kolumnen för "+/-" (t.ex. 22-9) behöver lite extra utrymme jämfört med singelsiffror */
     .text-dimmad {
         width: 14%;
     }

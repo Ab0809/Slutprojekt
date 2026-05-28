@@ -175,10 +175,15 @@ hr {
     }
 }
 
+/* ==========================================================================
+   ENBART MOBIL - ÄNDRAR INGA DATORSTILAR
+   ========================================================================== */
 @media (max-width: 640px) {
     .navbar {
         justify-content: center;
         text-align: center;
+        flex-direction: column; /* Staplar loggan och listan */
+        gap: 12px;
     }
 
     /* Centrerar även loggan och bilden i mobilvyn */
@@ -186,8 +191,19 @@ hr {
         justify-content: center;
     }
 
+    /* Tvingar meny-listans knappar att hamna under varandra på mobilen */
     .navbar ul {
         width: 100%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* Gör knapparna bredare så de passar mobilmenyn bättre */
+    .knappar {
+        display: block;
+        padding: 10px;
+        box-shadow: none; /* Tar bort 3D-skuggan på mobilen */
+        border-radius: 5px;
     }
 
     .huvud-sektion {
@@ -217,4 +233,3 @@ hr {
         padding: 0 8px;
     }
 }
-

@@ -1,68 +1,234 @@
-/* --- GRUNDSTILAR (DATOR OCH ALLMÄNT - JUSTERAD NAVBAR) --- */
-body {
-    background-color: #c7e5d9;
-    min-height: 100vh;
-    margin: 0;
-    font-family: sans-serif;
+* {
+    box-sizing: border-box;
+}
+/* --- HUVUDSEKTION (Centrerar allt innehåll på skärmen) --- */
+.huvud-sektion {
+    flex: 1;
+    display: flex;
+    flex-direction: column;   /* Staplar eventuell text och plan vertikalt */
+    align-items: center;      /* Centrerar horisontellt */
+    justify-content: center;  /* Centrerar vertikalt */
+    padding: 40px 20px;
+    width: 100%;
 }
 
-/* Navigering/Meny - Gjorts mindre och centrerad på datorn */
+/* Fotbollsplanen (Centrerad med auto-margins) */
+.team-area {
+    background-image: url("Bilder/fotbollsplan.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 50px 20px;
+    width: 100%;
+    max-width: 800px;         /* Hindrar planen från att bli för bred */
+    height: 650px;            /* Fast höjd på datorn */
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* Sprider ut raderna (anfall, mittfält etc.) jämnt */
+    margin: 0 auto;           /* Tvingar webbläsaren att centrera boxen helt */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Raderna med spelare */
+.rad {
+    display: flex;
+    justify-content: center;  /* Centrerar spelarkorten inuti varje rad */
+    align-items: center;
+    gap: 35px;                /* Avstånd mellan spelarna */
+    width: 100%;
+}
+
+body {
+    background: linear-gradient(white, rgba(167, 215, 255, 1.0)); /*blandar färgen*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #005293;
+    overflow-x: hidden;
+}
+
+hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #005293;
+    margin: 0;
+}
+
+.Huvudsida {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.knappar{
+    border-style: solid;
+    border-radius: 1px;
+    padding: 4px;
+    box-shadow: 5px 5px 5px; /* Lägger till en skugga på knapparna */
+}
+
+.knappar:hover{
+    background-color: darkblue;
+    color: white;
+}/*färgar knapparna när man trycker på dem*/
+
+
 .navbar {
-    background-color: #0077bb; 
-    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1000px;      /* Sätter en maxbredd så den blir mindre på datorn */
-    margin: 20px auto;      /* Centrerar menyn och ger avstånd till planen */
-    border-radius: 10px;    /* Ger lite snygga rundade hörn på datorn */
-    box-sizing: border-box;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px 50px;
+    background-color: #ffffff;
+    margin: 20px 40px 0;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 82, 147, 0.12);
 }
 
-.loga {
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
+/* Ändrad för att lägga bild och text snyggt bredvid varandra */
+.navbar .loga {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Avstånd mellan bilden och texten MFF */
+}
+
+/* Ny regel: Gör så att bilden anpassar sig perfekt till textens höjd */
+.loga-bild {
+    height: 1em; /* "1em" betyder exakt samma höjd som texten runt omkring! */
+    width: auto;  /* Behåller bildens korrekta proportioner i bredd */
 }
 
 .navbar ul {
     list-style: none;
     display: flex;
-    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 30px;
     margin: 0;
     padding: 0;
 }
 
-.knappar {
-    color: white;
+.navbar a {
     text-decoration: none;
-    font-weight: bold;
-    padding: 5px 10px;
+    color: #005293;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
-/* Fotbollsplanen och rader */
+.navbar a.active {
+    border-bottom: 2px solid #005293;
+}
+
+
+.huvud-sektion {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px; /* Tillagd padding för utrymme runt planen */
+}
+
+.title {
+    font-size: 3.5rem;
+    line-height: 1.05;
+    margin-bottom: 0;
+    font-weight: 900;
+}
+
+.undertext {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+/* De vita korten på framsidan */
+.info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 0 16px 24px;
+}
+
+.kort {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    width: min(250px, 100%);
+}
+
+.kort h3 {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    color: #a7d7ff; /* Ljusblå rubrik inuti korten */
+}
+
+.match-info {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.datum {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.knapp {
+    display: inline-block;
+    background-color: #005293;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+/*skugga till kanpparna*/
+.knapp:hover {
+    background-color: #003d6d;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   TILLAGDA STILAR FÖR FOTBOLLSPLANEN (Håller ihop strukturen på datorn)
+   ========================================================================== */
+
 .team-area {
     background-image: url("Bilder/fotbollsplan.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     padding: 40px 20px;
-    margin: 20px auto;      /* Centrerad i linje med menyn */
-    max-width: 1000px;      /* Matchar menyns bredd för bättre struktur */
+    width: 100%;
+    max-width: 850px; /* Hindrar fotbollsplanen från att dras ut och bli för bred */
+    height: 650px;    /* Ger en bra proportionerlig höjd på datorskärmar */
     border-radius: 30px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    justify-content: space-around; /* Jämn fördelning vertikalt */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .rad {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 35px; /* Avstånd mellan spelarkorten på datorn */
 }
 
-/* Spelarkorten på datorn */
+/* Spelarkorten på planen */
 .anfallare,
 .mittfältare,
 .försvarare,
@@ -70,22 +236,23 @@ body {
     color: #ffffff;
     border-radius: 20px;
     text-align: center;
-    border: 5px solid black;
-    background-color: rgba(0, 0, 0, 0.75);
-    width: 140px; 
-    padding: 15px 10px;
+    border: 4px solid black;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 130px; 
+    padding: 12px 10px;
     box-sizing: border-box;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .anfallare p, .mittfältare p, .försvarare p, .målvakt p {
     margin: 0 0 5px 0;
     font-weight: bold;
-    font-size: 16px; 
+    font-size: 15px; 
 }
 
-/* Numret på tröjan (Dator) */
+/* Numret på tröjan */
 .nummer {
-    font-size: 35px;
+    font-size: 32px;
     font-weight: 900;
     margin: 0;
     line-height: 1;
@@ -95,46 +262,67 @@ body {
     margin: 0 !important;
 }
 
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIV DESIGN)
+   ========================================================================== */
 
-/* --- MOBILANPASSNING (Skärmar under 640px bredd - HELT ENLIGT DINA ÖNSKEMÅL) --- */
+@media (max-width: 900px) {
+    .navbar {
+        margin: 16px 16px 0;
+        padding: 18px 20px;
+    }
+
+    .title {
+        font-size: 2.4rem;
+    }
+}
+
 @media (max-width: 640px) {
     .navbar {
-        flex-direction: column;
-        gap: 10px;
+        justify-content: center;
         text-align: center;
-        max-width: 100%;    /* Återställer till full bredd på mobilen */
-        margin: 0;          /* Tar bort dator-marginalerna */
-        border-radius: 0;   /* Tar bort hörnavrundningen på mobilen */
+    }
+
+    /* Centrerar även loggan och bilden i mobilvyn */
+    .navbar .loga {
+        justify-content: center;
     }
 
     .navbar ul {
-        flex-direction: column;
-        gap: 8px;
         width: 100%;
+        flex-direction: column; /* Staplar länkarna i mobilen */
+        gap: 12px;
     }
 
     .knappar {
         display: block;
-        padding: 8px;
-        background-color: rgba(255, 255, 255, 0.1);
+        padding: 10px;
+        box-shadow: none; /* Tar bort 3D-skuggan på mobilen för ett renare utseende */
         border-radius: 5px;
     }
 
+    .huvud-sektion {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 10px;
+    }
+
+    /* Mobilanpassning för fotbollsplanen */
     .team-area {
         padding: 20px 5px;
-        margin: 5px;
         border-radius: 15px;
         background-size: cover; 
-        gap: 15px;
-        max-width: 100%;    /* Återställer planen till mobilens bredd */
+        height: auto;
+        aspect-ratio: 2/3; /* Behåller fotbollsplanens form på mobilen */
+        gap: 10px;
     }
 
     .rad {
         gap: 5px;
-        flex-wrap: nowrap; 
+        flex-wrap: nowrap; /* Tvingar spelarna att stanna på samma rad */
     }
 
-    /* Spelarkortens storlek på mobilen */
     .anfallare,
     .mittfältare,
     .försvarare,
@@ -142,13 +330,11 @@ body {
         flex: 0 1 23%; 
         width: 23%; 
         min-width: 65px; 
-        padding: 8px 2px;
-        border-width: 3px;
+        padding: 6px 2px;
+        border-width: 2px;
         border-radius: 12px;
-        box-sizing: border-box; 
     }
 
-    /* Textjustering enbart for mobilen så att allt ryms snyggt */
     .anfallare p, .mittfältare p, .försvarare p, .målvakt p {
         font-size: 10px; 
         white-space: nowrap;     
@@ -157,6 +343,26 @@ body {
     }
 
     .nummer {
-        font-size: 18px; 
+        font-size: 16px; 
+    }
+
+    .info {
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kort {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .title {
+        font-size: 1.9rem;
+        line-height: 1.1;
+        max-width: 320px;
+        margin: 0 auto 8px;
+        padding: 0 8px;
     }
 }

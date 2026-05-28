@@ -1,33 +1,140 @@
-.text-center {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 50px 20px;
-    text-align: center; 
+* {
+    box-sizing: border-box;
 }
 
-.text-center h1 {
+/* Säkrar att bakgrunden täcker hela skärmen och inte klipper */
+html {
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(white, rgba(167, 215, 255, 1.0));
+    background-attachment: fixed; /* Gör att bakgrunden sitter fast när man scrollar */
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #005293;
+    display: flex;
+    flex-direction: column; /* Lägger header, linje och main under varandra */
+}
+
+hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #005293;
+    margin: 0;
+}
+
+/* Menyknappar */
+.menyknappar {
+    border-style: solid;
+    border-radius: 1px;
+    padding: 4px;
+    box-shadow: 5px 5px 5px;
+    text-decoration: none;
+    color: #005293;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.menyknappar:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+/* Navigering */
+.navigering {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px 50px;
+    background-color: #ffffff;
+    margin: 20px 40px 0;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 82, 147, 0.12);
+}
+
+.navigering .logotyp {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logotyp-bild {
+    height: 1em;
+    width: auto;
+}
+
+.navigering ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.navigering a {
+    text-decoration: none;
+    color: #005293;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Huvudinnehållet - Tvingar elementen att staplas vertikalt */
+.text-centrerad {
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center; 
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* VIKTIGT: Gör så att fakta och quiz hamnar under varandra! */
+    align-items: center;
+}
+
+.text-centrerad h1 {
     font-size: 32px;
     text-transform: uppercase;
     margin-bottom: 30px;
+    font-weight: 900;
 }
 
-.text-center p {
+.fakta-text {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.fakta-text p {
     font-size: 18px;
     line-height: 1.7;
     margin-bottom: 20px;
 }
 
+/* Quiz-boxen */
 .quiz-sektion {
-    margin-top: 50px;
+    width: 100%; /* Tar upp hela bredden av sina max 800px */
+    max-width: 600px; /* Gör så att quizboxen inte blir för bred och gles på datorn */
+    margin-top: 20px;
     padding: 30px;
-    background-color: rgba(255, 255, 255, 0.5); /* Lätt vit bakgrund över gradienten */
+    background-color: rgba(255, 255, 255, 0.75); /* Gjorde bakgrunden lite vitare för bättre kontrast */
     border: 1px solid #005293;
-    border-radius: 4px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .quiz-sektion h3 {
     font-size: 22px;
     margin-bottom: 25px;
+    font-weight: 700;
 }
 
 .knapp-grupp {
@@ -37,17 +144,19 @@
     flex-wrap: wrap;
 }
 
+/* Svarsknapparna i quizet */
 .svar-knapp {
     background-color: white;
     color: #005293;
     border: 2px solid #005293;
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    border-radius: 2px;
+    border-radius: 4px;
     box-shadow: 3px 3px 0px #005293;
-    transition: transform 0.1s;
+    transition: transform 0.1s, background-color 0.2s;
+    min-width: 140px;
 }
 
 .svar-knapp:hover:not(:disabled) {
@@ -60,7 +169,84 @@
     box-shadow: 1px 1px 0px #005293;
 }
 
-/* När en knapp är låst efter svar */
 .svar-knapp:disabled {
     cursor: default;
+}
+
+/* ==========================================================================
+   RESPONSIV DESIGN (MOBILANPASSNING)
+   ========================================================================== */
+@media (max-width: 900px) {
+    .navigering {
+        margin: 16px 16px 0;
+        padding: 18px 20px;
+    }
+
+    .text-centrerad h1 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 640px) {
+    .navigering {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column; /* Lägger loggan och menyn över varandra */
+        gap: 12px;
+    }
+
+    .navigering .logotyp {
+        justify-content: center;
+    }
+
+    /* KNAPPAR UNDER VARANDRA PÅ MOBIL (Samma som dina andra sidor) */
+    .navigering ul {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .menyknappar {
+        display: block;
+        padding: 10px;
+        box-shadow: none; /* Tar bort 3D-skuggan på mobilen */
+        border-radius: 5px;
+    }
+
+    .text-centrerad {
+        padding: 20px 15px;
+    }
+
+    .text-centrerad h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .fakta-text p {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .quiz-sektion {
+        padding: 20px 15px;
+    }
+
+    .quiz-sektion h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    /* Staplar svarsknapparna i quizet på mobilen */
+    .knapp-grupp {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .svar-knapp {
+        width: 100%;
+        padding: 12px;
+        font-size: 15px;
+    }
 }
