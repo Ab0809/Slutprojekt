@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakta Malmö FF Supportersida</title>
+    <link rel="stylesheet" href="kontakta.css">
+    <script src="kontakta.js" defer></script>
+</head>
+
+<body class="kontaktsida">
+    <header>
+        <nav class="navigering">
+            <div class="logotyp">
+                <img src="Bilder/Malmo_FF_logo.svg" alt="MFF Logga" class="logotyp-bild">
+                MFF
+            </div>
+            <ul>
+                <li><a href="index.html" class="menyknappar">Hem</a></li>
+                <li><a href="herrlag.html" class="menyknappar">Herrlaget</a></li>
+                <li><a href="damlaget.html" class="menyknappar">Damlaget</a></li>
+                <li><a href="resultat.html" class="menyknappar">Tabell</a></li>
+                <li><a href="historia.html" class="menyknappar">Historia</a></li>
+                <li><a href="kontakta.html" class="menyknappar">Kontakta oss</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+
+    <main class="huvud-sektion">
+        <div class="formular-box">
+            <h2>Kontakta oss</h2>
+            <p class="formular-info">Har du frågor, förslag eller vill du bara snacka MFF? Skriv ett meddelande till oss nedan!</p>
+            
+            <form id="kontakt-formular">
+                <div class="formular-grupp">
+                    <label for="namn">Namn</label>
+                    <input type="text" id="namn" required placeholder="Ditt fullständiga namn">
+                </div>
+
+                <div class="formular-grupp">
+                    <label for="epost">E-postadress</label>
+                    <input type="email" id="epost" required placeholder="namn@domän.se">
+                </div>
+
+                <div class="formular-grupp">
+                    <label for="amne">Ämne</label>
+                    <input type="text" id="amne" required placeholder="Vad gäller det?">
+                </div>
+
+                <div class="formular-grupp">
+                    <label for="meddelande">Meddelande</label>
+                    <textarea id="meddelande" rows="6" required placeholder="Skriv ditt meddelande här..."></textarea>
+                </div>
+
+                <button type="submit" class="skicka-knapp">Skicka meddelande</button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

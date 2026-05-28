@@ -1,0 +1,182 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(white, rgba(167, 215, 255, 1.0));
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #005293;
+    overflow-x: hidden;
+}
+
+hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #005293;
+    margin: 0;
+}
+
+.kontaktsida {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Menyknappar */
+.menyknappar {
+    border-style: solid;
+    border-radius: 1px;
+    padding: 4px;
+    box-shadow: 5px 5px 5px;
+}
+
+.menyknappar:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+/* Navigering */
+.navigering {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px 50px;
+    background-color: #ffffff;
+    margin: 20px 40px 0;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 82, 147, 0.12);
+}
+
+.navigering .logotyp {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logotyp-bild {
+    height: 1em;
+    width: auto;
+}
+
+.navigering ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.navigering a {
+    text-decoration: none;
+    color: #005293;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Innehåll och formulärbox */
+.huvud-sektion {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.formular-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 550px;
+    border: 1px solid rgba(0, 82, 147, 0.1);
+}
+
+.formular-box h2 {
+    margin-top: 0;
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+.formular-info {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+/* Fält i formuläret */
+.formular-grupp {
+    margin-bottom: 20px;
+}
+
+.formular-grupp label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.formular-grupp input,
+.formular-grupp textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #a7d7ff;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #005293;
+}
+
+.formular-grupp input:focus,
+.formular-grupp textarea:focus {
+    outline: none;
+    border-color: #005293;
+    box-shadow: 0 0 5px rgba(0, 82, 147, 0.3);
+}
+
+/* Skickaknappen */
+.skicka-knapp {
+    width: 100%;
+    background-color: #005293;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 82, 147, 0.2);
+}
+
+.skicka-knapp:hover {
+    background-color: #003d6d;
+    transform: translateY(-1px);
+}
+
+/* Mobilanpassning */
+@media (max-width: 900px) {
+    .navigering { margin: 16px 16px 0; padding: 18px 20px; }
+}
+
+@media (max-width: 640px) {
+    .navigering { justify-content: center; text-align: center; }
+    .navigering .logotyp { justify-content: center; }
+    .navigering ul { width: 100%; }
+    .formular-box { padding: 25px 20px; }
+    .formular-box h2 { font-size: 1.6rem; }
+}
