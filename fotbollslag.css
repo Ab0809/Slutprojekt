@@ -1,18 +1,18 @@
 * {
     box-sizing: border-box;
 }
-/* --- HUVUDSEKTION (Centrerar allt innehåll på skärmen) --- */
+
 .huvud-sektion {
     flex: 1;
     display: flex;
-    flex-direction: column;   /* Staplar eventuell text och plan vertikalt */
-    align-items: center;      /* Centrerar horisontellt */
-    justify-content: center;  /* Centrerar vertikalt */
+    flex-direction: column;
+    align-items: center;      
+    justify-content: center;  
     padding: 40px 20px;
     width: 100%;
 }
 
-/* Fotbollsplanen (Centrerad med auto-margins) */
+/* Fotbollsplanen */
 .team-area {
     background-image: url("Bilder/fotbollsplan.png");
     background-position: center;
@@ -21,12 +21,12 @@
     padding: 50px 20px;
     width: 100%;
     max-width: 800px;         /* Hindrar planen från att bli för bred */
-    height: 650px;            /* Fast höjd på datorn */
+    height: 650px;            
     border-radius: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-around; /* Sprider ut raderna (anfall, mittfält etc.) jämnt */
-    margin: 0 auto;           /* Tvingar webbläsaren att centrera boxen helt */
+    margin: 0 auto;           /* Tvingar webbläsaren att centrera boxen */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
@@ -90,19 +90,19 @@ hr {
     border: 1px solid rgba(0, 82, 147, 0.12);
 }
 
-/* Ändrad för att lägga bild och text snyggt bredvid varandra */
+
 .navbar .loga {
     font-size: 24px;
     font-weight: 900;
     letter-spacing: 2px;
     display: flex;
-    align-items: center;
-    gap: 8px; /* Avstånd mellan bilden och texten MFF */
+    align-items: center; 
+    gap: 8px; /* Lägger till lite utrymme mellan loggan och texten */
 }
 
-/* Ny regel: Gör så att bilden anpassar sig perfekt till textens höjd */
+/*  Gör så att bilden anpassar sig perfekt till textens höjd */
 .loga-bild {
-    height: 1em; /* "1em" betyder exakt samma höjd som texten runt omkring! */
+    height: 1em; 
     width: auto;  /* Behåller bildens korrekta proportioner i bredd */
 }
 
@@ -134,7 +134,7 @@ hr {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 40px 20px; /* Tillagd padding för utrymme runt planen */
+    padding: 40px 20px; 
 }
 
 .title {
@@ -148,42 +148,6 @@ hr {
     font-size: 1.2rem;
     margin-bottom: 40px;
     opacity: 0.8;
-}
-
-/* De vita korten på framsidan */
-.info {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 0 16px 24px;
-}
-
-.kort {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    width: min(250px, 100%);
-}
-
-.kort h3 {
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-    color: #a7d7ff; /* Ljusblå rubrik inuti korten */
-}
-
-.match-info {
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin: 5px 0;
-}
-
-.datum {
-    font-size: 0.9rem;
-    margin-bottom: 20px;
 }
 
 .knapp {
@@ -202,12 +166,9 @@ hr {
     transform: translateY(-2px);
 }
 
-/* ==========================================================================
-   TILLAGDA STILAR FÖR FOTBOLLSPLANEN (Håller ihop strukturen på datorn)
-   ========================================================================== */
 
 .team-area {
-    background-image: url("Bilder/fotbollsplan.png");
+    background-image: url("Bilder/Fotbollsplan.webp");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -218,7 +179,7 @@ hr {
     border-radius: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around; /* Jämn fördelning vertikalt */
+    justify-content: space-around; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
@@ -228,7 +189,6 @@ hr {
     gap: 35px; /* Avstånd mellan spelarkorten på datorn */
 }
 
-/* Spelarkorten på planen */
 .anfallare,
 .mittfältare,
 .försvarare,
@@ -250,7 +210,7 @@ hr {
     font-size: 15px; 
 }
 
-/* Numret på tröjan */
+
 .nummer {
     font-size: 32px;
     font-weight: 900;
@@ -262,9 +222,6 @@ hr {
     margin: 0 !important;
 }
 
-/* ==========================================================================
-   MEDIA QUERIES (RESPONSIV DESIGN)
-   ========================================================================== */
 
 @media (max-width: 900px) {
     .navbar {

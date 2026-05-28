@@ -20,7 +20,6 @@ let nuvarandeFragaIndex = 0;
 let antalRatt = 0;
 let antalFel = 0;
 
-// Starta quizet automatiskt när sidan laddas
 visaFraga();
 
 function visaFraga() {
@@ -77,28 +76,28 @@ function nastaFraga() {
 }
 
 function visaResultat() {
-    // Göm frågan och "Nästa"-knappen
+
     document.getElementById("quiz-container").style.display = "none";
     document.getElementById("nasta-knapp").style.display = "none";
     
-    // Skriv ut poängen i textfälten
+   
     document.getElementById("text-ratt").innerText = antalRatt;
     document.getElementById("text-fel").innerText = antalFel;
     
-    // Visa resultatboxen (där även "Gör om"-knappen ligger)
+   
     document.getElementById("resultat-box").style.display = "block";
 }
 
-// Denna funktion återställer allt så man kan spela igen
+
 function nollstallQuiz() {
     nuvarandeFragaIndex = 0;
     antalRatt = 0;
     antalFel = 0;
     
-    // Göm resultatboxen och visa frågelådan igen
+   
     document.getElementById("resultat-box").style.display = "none";
     document.getElementById("quiz-container").style.display = "block";
     
-    // Kör igång första frågan
+   
     visaFraga();
 }
