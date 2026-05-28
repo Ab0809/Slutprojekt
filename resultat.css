@@ -1,0 +1,209 @@
+/* --- GRUNDSTILAR (DATOR OCH ALLMÄNT - HELT ORÖRT) --- */
+body {
+    background: linear-gradient(white, rgba(167, 215, 255, 1.0));
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #005293;
+    min-height: 900px;
+}
+
+/* Navigationsmeny längst upp */
+.navigering {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #ffffff;
+    width: calc(100% - 60px);
+    max-width: 1200px;
+    margin: 20px auto 0;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 82, 147, 0.12);
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.navigering .logotyp {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.navigering ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.navigering a {
+    text-decoration: none;
+    color: #005293;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Menyknappar */
+.menyknappar {
+    border-style: solid;
+    border-radius: 1px;
+    padding: 4px;
+    box-shadow: 5px 5px 5px;
+}
+
+.menyknappar:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+/* Centrerar tabellboxen perfekt på skärmen */
+.huvudinnehall {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Vit container runt tabellen */
+.tabell-omslag {
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 15px 0;
+    width: fit-content;
+    min-width: 500px;
+    border: solid rgb(0, 0, 0);
+}
+
+/* Rubrikfältet i tabellens topp */
+.tabell-rubrik-rad {
+    padding: 0 20px 15px 20px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.liga-titel {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/* Själva tabellen */
+.statistik-tabell {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+/* Kolumnrubriker */
+.statistik-tabell th {
+    padding: 12px 16px;
+    font-weight: 500;
+    color: #666;
+    border-bottom: 1px solid #eaeaea;
+}
+
+/* Tabellrader */
+.statistik-tabell td {
+    padding: 10px 16px;
+    vertical-align: middle;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+/* Varannan rad får ljusgrå bakgrund */
+.statistik-tabell tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Textjustering och format */
+.text-centrerad { text-align: center; }
+.text-vanster { text-align: left; }
+.text-dimmad { color: #888; }
+.text-fet { font-weight: bold; }
+
+.lag-namn {
+    font-weight: 400;
+    width: 150px;
+}
+
+
+/* --- MOBILANPASSNING (Skärmar under 640px bredd - ENDAST HÄR ÄR DET ÄNDRAT) --- */
+@media (max-width: 640px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    /* Menyn */
+    .navigering {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+        width: calc(100% - 20px);
+        margin: 10px auto;
+    }
+
+    .navigering ul {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navigering a {
+        display: block;
+    }
+
+    /* Tabellens container på mobilen */
+    .huvudinnehall {
+        padding: 5px; /* Minimal padding runt om så tabellen får mer plats */
+    }
+
+    .tabell-omslag {
+        min-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 0;
+    }
+
+    .tabell-rubrik-rad {
+        padding: 0 10px 10px 10px;
+    }
+
+    /* Tvingar tabellen att hålla sig inom skärmens bredd */
+    .statistik-tabell {
+        table-layout: fixed; /* Tvingar kolumnerna att krympa istället för att trycka ut tabellen */
+        width: 100%;
+    }
+
+    /* Krymper text och mellanrum till ett minimum så att ALLA 9 kolumner syns samtidigt */
+    .statistik-tabell th,
+    .statistik-tabell td {
+        padding: 6px 3px; /* Mycket mindre mellanrum i sidled */
+        font-size: 11px;   /* Mindre textstorlek så siffrorna får plats */
+        word-break: break-all; /* Hindrar text från att trycka ut kolumnerna */
+    }
+
+    /* Specialbredd för lag-kolumnen så lagnamnen får mest plats */
+    .lag-namn {
+        width: 28%; 
+        font-size: 11px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; /* Om ett lagnamn är jättelångt (t.ex. Brommapojkarna) läggs "..." till istället för att förstöra tabellen */
+    }
+
+    /* Sätter fasta procent på de små sifferkolumnerna så de inte tar onödig plats */
+    .text-centrerad {
+        width: 8%;
+    }
+    
+    /* Kolumnen för "+/-" (t.ex. 22-9) behöver lite extra utrymme jämfört med singelsiffror */
+    .text-dimmad {
+        width: 14%;
+    }
+}

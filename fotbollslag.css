@@ -1,0 +1,162 @@
+/* --- GRUNDSTILAR (DATOR OCH ALLMÄNT - JUSTERAD NAVBAR) --- */
+body {
+    background-color: #c7e5d9;
+    min-height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+/* Navigering/Meny - Gjorts mindre och centrerad på datorn */
+.navbar {
+    background-color: #0077bb; 
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;      /* Sätter en maxbredd så den blir mindre på datorn */
+    margin: 20px auto;      /* Centrerar menyn och ger avstånd till planen */
+    border-radius: 10px;    /* Ger lite snygga rundade hörn på datorn */
+    box-sizing: border-box;
+}
+
+.loga {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.knappar {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+/* Fotbollsplanen och rader */
+.team-area {
+    background-image: url("Bilder/fotbollsplan.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 40px 20px;
+    margin: 20px auto;      /* Centrerad i linje med menyn */
+    max-width: 1000px;      /* Matchar menyns bredd för bättre struktur */
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.rad {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Spelarkorten på datorn */
+.anfallare,
+.mittfältare,
+.försvarare,
+.målvakt {
+    color: #ffffff;
+    border-radius: 20px;
+    text-align: center;
+    border: 5px solid black;
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 140px; 
+    padding: 15px 10px;
+    box-sizing: border-box;
+}
+
+.anfallare p, .mittfältare p, .försvarare p, .målvakt p {
+    margin: 0 0 5px 0;
+    font-weight: bold;
+    font-size: 16px; 
+}
+
+/* Numret på tröjan (Dator) */
+.nummer {
+    font-size: 35px;
+    font-weight: 900;
+    margin: 0;
+    line-height: 1;
+}
+
+.nummer p {
+    margin: 0 !important;
+}
+
+
+/* --- MOBILANPASSNING (Skärmar under 640px bredd - HELT ENLIGT DINA ÖNSKEMÅL) --- */
+@media (max-width: 640px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        max-width: 100%;    /* Återställer till full bredd på mobilen */
+        margin: 0;          /* Tar bort dator-marginalerna */
+        border-radius: 0;   /* Tar bort hörnavrundningen på mobilen */
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .knappar {
+        display: block;
+        padding: 8px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+    }
+
+    .team-area {
+        padding: 20px 5px;
+        margin: 5px;
+        border-radius: 15px;
+        background-size: cover; 
+        gap: 15px;
+        max-width: 100%;    /* Återställer planen till mobilens bredd */
+    }
+
+    .rad {
+        gap: 5px;
+        flex-wrap: nowrap; 
+    }
+
+    /* Spelarkortens storlek på mobilen */
+    .anfallare,
+    .mittfältare,
+    .försvarare,
+    .målvakt {
+        flex: 0 1 23%; 
+        width: 23%; 
+        min-width: 65px; 
+        padding: 8px 2px;
+        border-width: 3px;
+        border-radius: 12px;
+        box-sizing: border-box; 
+    }
+
+    /* Textjustering enbart for mobilen så att allt ryms snyggt */
+    .anfallare p, .mittfältare p, .försvarare p, .målvakt p {
+        font-size: 10px; 
+        white-space: nowrap;     
+        overflow: hidden;        
+        text-overflow: ellipsis; 
+    }
+
+    .nummer {
+        font-size: 18px; 
+    }
+}

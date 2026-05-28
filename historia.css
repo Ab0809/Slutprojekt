@@ -1,0 +1,66 @@
+.text-center {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    text-align: center; 
+}
+
+.text-center h1 {
+    font-size: 32px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.text-center p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.quiz-sektion {
+    margin-top: 50px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.5); /* Lätt vit bakgrund över gradienten */
+    border: 1px solid #005293;
+    border-radius: 4px;
+}
+
+.quiz-sektion h3 {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.knapp-grupp {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.svar-knapp {
+    background-color: white;
+    color: #005293;
+    border: 2px solid #005293;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 2px;
+    box-shadow: 3px 3px 0px #005293;
+    transition: transform 0.1s;
+}
+
+.svar-knapp:hover:not(:disabled) {
+    background-color: #005293;
+    color: white;
+}
+
+.svar-knapp:active:not(:disabled) {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px #005293;
+}
+
+/* När en knapp är låst efter svar */
+.svar-knapp:disabled {
+    cursor: default;
+}
